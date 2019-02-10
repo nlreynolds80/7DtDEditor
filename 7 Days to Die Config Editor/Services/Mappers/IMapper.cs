@@ -8,7 +8,7 @@ namespace Services.Mappers
         where X : class 
         where T : class
     {
-        X ConvertFrom(T domainSource);
-        T ConvertTo(X xmlSource);
+        X Convert(T domainSource);
+        T Convert(X xmlSource);
     }
 }

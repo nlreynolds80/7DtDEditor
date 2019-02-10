@@ -8,10 +8,10 @@ namespace Domain
 {
     public class Entity
     {
+        public string Name { get; set; }
+        public string Extends { get; set; }
         public List<Property> Properties { get; set; }
         public List<EffectsGroup> Effects { get; set; }
         public List<Drop> Drops { get; set; }
-        public string Name { get; set; }
-        public string Extends { get; set; }
     }
 }
