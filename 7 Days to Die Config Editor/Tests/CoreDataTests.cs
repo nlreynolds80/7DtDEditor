@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Xml;
 using System.Xml.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,9 +12,9 @@ namespace Tests
         private T Deserialize<T>(string pathToXml) where T : class
         {
             var xmlSerializer = new XmlSerializer(typeof(T));
-            using (var fileStream = new FileStream(pathToXml, FileMode.Open))
+            using (var xmlTextReader = new XmlTextReader(pathToXml))
             {
-                return xmlSerializer.Deserialize(fileStream) as T;
+                return xmlSerializer.Deserialize(xmlTextReader) as T;
             }
         }
 
@@ -29,6 +30,48 @@ namespace Tests
             //Assert
             Assert.IsNotNull(entityClasses);
             Assert.IsTrue(entityClasses.Items.Length > 0);
+        }
+
+        [TestMethod]
+        public void entitygroups_CanDeserialize()
+        {
+            //Arrange
+            var pathToXml = @"E:\SteamApps\steamapps\common\7 Days To Die\Data\Config\entitygroups.xml";
+
+            //Act
+            var entityGroups = Deserialize<entitygroups>(pathToXml);
+
+            //Assert
+            Assert.IsNotNull(entityGroups);
+            Assert.IsTrue(entityGroups.Items.Length > 0);
+        }
+
+        [TestMethod]
+        public void gamestages_CanDeserialize()
+        {
+            //Arrange
+            var pathToXml = @"E:\SteamApps\steamapps\common\7 Days To Die\Data\Config\gamestages.xml";
+
+            //Act
+            var gameStages = Deserialize<gamestages>(pathToXml);
+
+            //Assert
+            Assert.IsNotNull(gameStages);
+            Assert.IsTrue(gameStages.Items.Length > 0);
+        }
+
+        [TestMethod]
+        public void spawning_CanDeserialize()
+        {
+            //Arrange
+            var pathToXml = @"E:\SteamApps\steamapps\common\7 Days To Die\Data\Config\spawning.xml";
+
+            //Act
+            var spawning = Deserialize<spawning>(pathToXml);
+
+            //Assert
+            Assert.IsNotNull(spawning);
+            Assert.IsTrue(spawning.Items.Length > 0);
         }
     }
 }
