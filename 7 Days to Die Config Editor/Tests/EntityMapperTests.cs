@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -31,7 +32,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void ConvertToXml_GivenValidObject_MapsCorrectly()
+        public void ConvertToDomain_GivenValidObject_MapsCorrectly()
         {
             //Arrange
             var entityMapper = new EntityMapper(_dropMapper.Object, _effectsMapper.Object, _propertyMapper.Object);
@@ -56,7 +57,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void ConvertToXml_GivenNulls_MapsCorrectly()
+        public void ConvertToDomain_GivenNulls_MapsCorrectly()
         {
             //Arrange
             var entityMapper = new EntityMapper(_dropMapper.Object, _effectsMapper.Object, _propertyMapper.Object);
@@ -71,6 +72,49 @@ namespace Tests
             Assert.AreEqual(0, entity.Properties.Count);
             Assert.IsNull(entity.Extends);
             Assert.IsNull(entity.Name);
+        }
+
+        [TestMethod]
+        public void ConvertToXml_GivenValidObject_MapsCorrectly()
+        {
+            //Arrange
+            var entityMapper = new EntityMapper(_dropMapper.Object, _effectsMapper.Object, _propertyMapper.Object);
+            var entity = new Entity()
+            {
+                Drops = new List<Drop>() { new Drop() },
+                Effects = new List<EffectsGroup>() { new EffectsGroup() },
+                Properties = new List<Property>() { new Property() },
+                Extends = "test",
+                Name = "testEntity"
+            };
+
+            //Act
+            var xmlEntity = entityMapper.Convert(entity);
+
+            //Assert
+            Assert.AreEqual(1, xmlEntity.drop.Length);
+            Assert.AreEqual(1, xmlEntity.effect_group.Length);
+            Assert.AreEqual(1, xmlEntity.property.Length);
+            Assert.AreEqual("test", xmlEntity.extends);
+            Assert.AreEqual("testEntity", xmlEntity.name);
+        }
+
+        [TestMethod]
+        public void ConvertToXml_GivenNulls_MapsCorrectly()
+        {
+            //Arrange
+            var entityMapper = new EntityMapper(_dropMapper.Object, _effectsMapper.Object, _propertyMapper.Object);
+            var entity = new Entity();
+
+            //Act
+            var xmlEntity = entityMapper.Convert(entity);
+
+            //Assert
+            Assert.IsNull(xmlEntity.drop);
+            Assert.IsNull(xmlEntity.effect_group);
+            Assert.IsNull(xmlEntity.property);
+            Assert.IsNull(xmlEntity.extends);
+            Assert.IsNull(xmlEntity.name);
         }
     }
 }

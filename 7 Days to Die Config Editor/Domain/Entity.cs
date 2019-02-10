@@ -10,8 +10,8 @@ namespace Domain
     {
         public string Name { get; set; }
         public string Extends { get; set; }
-        public List<Property> Properties { get; set; }
-        public List<EffectsGroup> Effects { get; set; }
-        public List<Drop> Drops { get; set; }
+        public List<Property> Properties { get; set; } = new List<Property>();
+        public List<EffectsGroup> Effects { get; set; } = new List<EffectsGroup>();
+        public List<Drop> Drops { get; set; } = new List<Drop>();
     }
 }

@@ -21,7 +21,15 @@ namespace Services
 
         public entity_classesEntity_class Convert(Entity domainSource)
         {
-            throw new NotImplementedException();
+            var xmlEntity = new entity_classesEntity_class()
+            {
+                name = domainSource.Name,
+                extends = domainSource.Extends,
+                property = domainSource.Properties.Count > 0 ? domainSource.Properties.Select(p => _propertyMapper.Convert(p)).ToArray() : null,
+                effect_group = domainSource.Effects.Count > 0 ? domainSource.Effects.Select(e => _effectsMapper.Convert(e)).ToArray() : null,
+                drop = domainSource.Drops.Count > 0 ? domainSource.Drops.Select(d => _dropMapper.Convert(d)).ToArray() : null
+            };
+            return xmlEntity;
         }
 
         public Entity Convert(entity_classesEntity_class xmlSource)
