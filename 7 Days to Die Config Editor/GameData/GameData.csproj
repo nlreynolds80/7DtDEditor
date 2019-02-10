@@ -41,10 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\entityclasses.cs" />
+    <Compile Include="Data\entitygroups.cs" />
+    <Compile Include="Data\gamestages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Data\spawning.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Schema\" />
+    <None Include="ScanGameData.bat" />
+    <EmbeddedResource Include="Schema\entityclasses.xsd" />
+    <EmbeddedResource Include="Schema\entitygroups.xsd" />
+    <EmbeddedResource Include="Schema\gamestages.xsd" />
+    <EmbeddedResource Include="Schema\spawning.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

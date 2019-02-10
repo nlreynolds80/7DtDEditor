@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="entity_classes" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="property">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="property" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" />
+      <xs:attribute name="value" type="xs:string" />
+      <xs:attribute name="param1" type="xs:string" />
+      <xs:attribute name="class" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="entity_classes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="property" />
+        <xs:element name="entity_class">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="property" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="effect_group" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="passive_effect" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" />
+                        <xs:attribute name="operation" type="xs:string" />
+                        <xs:attribute name="value" type="xs:string" />
+                        <xs:attribute name="tags" type="xs:string" />
+                        <xs:attribute name="match_all_tags" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="triggered_effect" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="requirement" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="name" type="xs:string" />
+                              <xs:attribute name="tags" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="trigger" type="xs:string" />
+                        <xs:attribute name="action" type="xs:string" />
+                        <xs:attribute name="buff" type="xs:string" />
+                        <xs:attribute name="target" type="xs:string" />
+                        <xs:attribute name="cvar" type="xs:string" />
+                        <xs:attribute name="operation" type="xs:string" />
+                        <xs:attribute name="value" type="xs:string" />
+                        <xs:attribute name="event" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="drop" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="event" type="xs:string" />
+                  <xs:attribute name="name" type="xs:string" />
+                  <xs:attribute name="count" type="xs:string" />
+                  <xs:attribute name="tool_category" type="xs:string" />
+                  <xs:attribute name="tag" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" />
+            <xs:attribute name="extends" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

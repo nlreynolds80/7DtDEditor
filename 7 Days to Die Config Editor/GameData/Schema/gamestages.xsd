@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="gamestages" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="gamestages" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="config">
+          <xs:complexType>
+            <xs:attribute name="daysAliveChangeWhenKilled" type="xs:string" />
+            <xs:attribute name="scavengerGameDifficultyBonus" type="xs:string" />
+            <xs:attribute name="adventurerGameDifficultyBonus" type="xs:string" />
+            <xs:attribute name="nomadGameDifficultyBonus" type="xs:string" />
+            <xs:attribute name="warriorGameDifficultyBonus" type="xs:string" />
+            <xs:attribute name="survivalistGameDifficultyBonus" type="xs:string" />
+            <xs:attribute name="insaneGameDifficultyBonus" type="xs:string" />
+            <xs:attribute name="startingWeight" type="xs:string" />
+            <xs:attribute name="diminishingReturns" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="group">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="spawner" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="gamestage" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="spawn" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="group" type="xs:string" />
+                              <xs:attribute name="num" type="xs:string" />
+                              <xs:attribute name="maxAlive" type="xs:string" />
+                              <xs:attribute name="duration" type="xs:string" />
+                              <xs:attribute name="interval" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="stage" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" />
+                  <xs:attribute name="count" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" />
+            <xs:attribute name="emptyChance" type="xs:string" />
+            <xs:attribute name="decoyChance" type="xs:string" />
+            <xs:attribute name="decoy1hpChance" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
