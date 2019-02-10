@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Drop.cs" />
     <Compile Include="EffectsGroup.cs" />
+    <Compile Include="EntityCollection.cs" />
     <Compile Include="TriggeredEffect.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="PassiveEffect.cs" />
