@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -18,6 +19,15 @@ namespace Tests
             }
         }
 
+        private void Serialize<T>(T source, string path) where T : class
+        {
+            var xmlSerializer = new XmlSerializer(typeof(T));
+            using (var file = File.OpenWrite(path))
+            {
+                xmlSerializer.Serialize(file, source);
+            }
+        }
+
         [TestMethod]
         public void entityclasses_CanDeserialize()
         {
@@ -26,6 +36,7 @@ namespace Tests
 
             //Act
             var entityClasses = Deserialize<entity_classes>(pathToXml);
+            Serialize(entityClasses, @"C:\Users\Nate\Desktop\entityclassestest.xml");
 
             //Assert
             Assert.IsNotNull(entityClasses);
