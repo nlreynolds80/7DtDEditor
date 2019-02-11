@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Services;
+using Services.Mappers;
 
 namespace Tests
 {
@@ -36,7 +40,24 @@ namespace Tests
 
             //Act
             var entityClasses = Deserialize<entity_classes>(pathToXml);
-            Serialize(entityClasses, @"C:\Users\Nate\Desktop\entityclassestest.xml");
+            //Serialize(entityClasses, @"C:\Users\Nate\Desktop\entityclassestest.xml");
+
+            var dropMapper = new DropMapper();
+            var passiveEffectMapper = new PassiveEffectMapper();
+            var effectRequirementMapper = new EffectRequirementMapper();
+            var triggeredEffectMapper = new TriggeredEffectMapper(effectRequirementMapper);
+            var effectsMapper = new EffectsGroupMapper(passiveEffectMapper, triggeredEffectMapper);
+            var propertyMapper = new PropertyMapper();
+            var entityMapper = new EntityMapper(dropMapper, effectsMapper, propertyMapper);
+            var entities = new List<Entity>();
+            foreach (var item in entityClasses.Items)
+            {
+                var entity = item as entity_classesEntity_class;
+                if (entity != null)
+                {
+                    entities.Add(entityMapper.Convert(entity));
+                }
+            }
 
             //Assert
             Assert.IsNotNull(entityClasses);
