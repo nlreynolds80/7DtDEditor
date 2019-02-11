@@ -69,6 +69,9 @@
     <Compile Include="DropMapperTests.cs" />
     <Compile Include="PropertyMapperTests.cs" />
     <Compile Include="EffectsGroupMapperTests.cs" />
+    <Compile Include="PassiveEffectMapperTests.cs" />
+    <Compile Include="TriggeredEffectMapperTests.cs" />
+    <Compile Include="EffectRequirementMapperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

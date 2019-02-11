@@ -16,5 +16,11 @@ namespace Domain
         public string Operation { get; set; }
         public string Value { get; set; }
         public string Event { get; set; }
+        public List<EffectRequirement> Requirements { get; private set; } = new List<EffectRequirement>();
+
+        public void SetRequirements(List<EffectRequirement> effectRequirements)
+        {
+            Requirements = effectRequirements ?? new List<EffectRequirement>();
+        }
     }
 }
