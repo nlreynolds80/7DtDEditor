@@ -19,15 +19,15 @@ namespace Tests
         public void Initialize()
         {
             _dropMapper = new Mock<IMapper<entity_classesEntity_classDrop, Drop>>();
-            _dropMapper.Setup(obj => obj.Convert(It.IsAny<entity_classesEntity_classDrop>())).Returns(new Drop());
+            _dropMapper.Setup(obj => obj.Convert(It.IsAny<entity_classesEntity_classDrop>())).Returns(new Drop("test"));
             _dropMapper.Setup(obj => obj.Convert(It.IsAny<Drop>())).Returns(new entity_classesEntity_classDrop());
 
             _effectsMapper = new Mock<IMapper<entity_classesEntity_classEffect_group, EffectsGroup>>();
-            _effectsMapper.Setup(obj => obj.Convert(It.IsAny<entity_classesEntity_classEffect_group>())).Returns(new EffectsGroup());
+            _effectsMapper.Setup(obj => obj.Convert(It.IsAny<entity_classesEntity_classEffect_group>())).Returns(new EffectsGroup("test"));
             _effectsMapper.Setup(obj => obj.Convert(It.IsAny<EffectsGroup>())).Returns(new entity_classesEntity_classEffect_group());
 
             _propertyMapper = new Mock<IMapper<property, Property>>();
-            _propertyMapper.Setup(obj => obj.Convert(It.IsAny<property>())).Returns(new Property());
+            _propertyMapper.Setup(obj => obj.Convert(It.IsAny<property>())).Returns(new Property("test"));
             _propertyMapper.Setup(obj => obj.Convert(It.IsAny<Property>())).Returns(new property());
         }
 
@@ -49,6 +49,7 @@ namespace Tests
             var entity = entityMapper.Convert(xmlEntity);
 
             //Assert
+            Assert.IsInstanceOfType(entity, typeof(Entity));
             Assert.AreEqual(1, entity.Drops.Count);
             Assert.AreEqual(1, entity.Effects.Count);
             Assert.AreEqual(1, entity.Properties.Count);
@@ -67,6 +68,7 @@ namespace Tests
             var entity = entityMapper.Convert(xmlEntity);
 
             //Assert
+            Assert.IsInstanceOfType(entity, typeof(Entity));
             Assert.AreEqual(0, entity.Drops.Count);
             Assert.AreEqual(0, entity.Effects.Count);
             Assert.AreEqual(0, entity.Properties.Count);
@@ -79,19 +81,16 @@ namespace Tests
         {
             //Arrange
             var entityMapper = new EntityMapper(_dropMapper.Object, _effectsMapper.Object, _propertyMapper.Object);
-            var entity = new Entity()
-            {
-                Drops = new List<Drop>() { new Drop() },
-                Effects = new List<EffectsGroup>() { new EffectsGroup() },
-                Properties = new List<Property>() { new Property() },
-                Extends = "test",
-                Name = "testEntity"
-            };
+            var entity = new Entity("testEntity") { Extends = "test" };
+            entity.SetDrops(new List<Drop>() { new Drop("test") });
+            entity.SetEffects(new List<EffectsGroup>() { new EffectsGroup("test") });
+            entity.SetProperties(new List<Property>() { new Property("test") });
 
             //Act
             var xmlEntity = entityMapper.Convert(entity);
 
             //Assert
+            Assert.IsInstanceOfType(xmlEntity, typeof(entity_classesEntity_class));
             Assert.AreEqual(1, xmlEntity.drop.Length);
             Assert.AreEqual(1, xmlEntity.effect_group.Length);
             Assert.AreEqual(1, xmlEntity.property.Length);
@@ -104,17 +103,17 @@ namespace Tests
         {
             //Arrange
             var entityMapper = new EntityMapper(_dropMapper.Object, _effectsMapper.Object, _propertyMapper.Object);
-            var entity = new Entity();
+            var entity = new Entity("testEntity");
 
             //Act
             var xmlEntity = entityMapper.Convert(entity);
 
             //Assert
+            Assert.IsInstanceOfType(xmlEntity, typeof(entity_classesEntity_class));
             Assert.IsNull(xmlEntity.drop);
             Assert.IsNull(xmlEntity.effect_group);
             Assert.IsNull(xmlEntity.property);
             Assert.IsNull(xmlEntity.extends);
-            Assert.IsNull(xmlEntity.name);
         }
     }
 }

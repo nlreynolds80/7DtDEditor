@@ -8,10 +8,15 @@ namespace Domain
 {
     public class Drop
     {
+        public string Name { get; }
         public string Event { get; set; }
-        public string Name { get; set; }
         public string Count { get; set; }
         public string ToolCategory { get; set; }
         public string Tag { get; set; }
+
+        public Drop(string name)
+        {
+            Name = name;
+        }
     }
 }

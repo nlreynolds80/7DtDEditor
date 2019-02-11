@@ -8,10 +8,15 @@ namespace Domain
 {
     public class PassiveEffect
     {
-        public string Name { get; set; }
+        public string Name { get; }
         public string Operation { get; set; }
         public string Value { get; set; }
         public string Tags { get; set; }
         public string MatchAllTags { get; set; }
+
+        public PassiveEffect(string name)
+        {
+            Name = name;
+        }
     }
 }
