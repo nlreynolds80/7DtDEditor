@@ -33,8 +33,8 @@ namespace Services.Mappers
         public EffectsGroup Convert(entity_classesEntity_classEffect_group xmlSource)
         {
             var effectsGroup = new EffectsGroup(xmlSource.name);
-            effectsGroup.SetPassiveEffects(xmlSource.passive_effect.Select(p => _passiveEffectMapper.Convert(p)).ToList());
-            effectsGroup.SetTriggeredEffects(xmlSource.triggered_effect.Select(t => _triggeredEffectMapper.Convert(t)).ToList());
+            effectsGroup.SetPassiveEffects(xmlSource.passive_effect?.Select(p => _passiveEffectMapper.Convert(p)).ToList());
+            effectsGroup.SetTriggeredEffects(xmlSource.triggered_effect?.Select(t => _triggeredEffectMapper.Convert(t)).ToList());
             return effectsGroup;
         }
     }

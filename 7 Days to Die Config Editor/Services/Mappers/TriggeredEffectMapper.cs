@@ -45,7 +45,7 @@ namespace Services.Mappers
                 Trigger = xmlSource.trigger,
                 Value = xmlSource.value
             };
-            triggeredEffect.SetRequirements(xmlSource.requirement.Select(r => _effectRequirementMapper.Convert(r)).ToList());
+            triggeredEffect.SetRequirements(xmlSource.requirement?.Select(r => _effectRequirementMapper.Convert(r)).ToList());
             return triggeredEffect;
         }
     }
