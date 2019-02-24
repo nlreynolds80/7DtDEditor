@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Services
+namespace Services.Serializers
 {
-    public interface ISerialize
+    public interface ISerializationService
     {
         string Serialize<T>(T source);
         T Deserialize<T>(string source);
