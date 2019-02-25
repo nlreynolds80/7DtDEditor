@@ -32,23 +32,29 @@ namespace Tests
             }
         }
 
-        [TestMethod]
-        public void entityclasses_CanDeserialize()
+        private EntityMapper GetEntityMapper()
         {
-            //Arrange
-            var pathToXml = @"E:\SteamApps\steamapps\common\7 Days To Die\Data\Config\entityclasses.xml";
-
-            //Act
-            var entityClasses = Deserialize<entity_classes>(pathToXml);
-            //Serialize(entityClasses, @"C:\Users\Nate\Desktop\entityclassestest.xml");
-
             var dropMapper = new DropMapper();
             var passiveEffectMapper = new PassiveEffectMapper();
             var effectRequirementMapper = new EffectRequirementMapper();
             var triggeredEffectMapper = new TriggeredEffectMapper(effectRequirementMapper);
             var effectsMapper = new EffectsGroupMapper(passiveEffectMapper, triggeredEffectMapper);
             var propertyMapper = new PropertyMapper();
-            var entityMapper = new EntityMapper(dropMapper, effectsMapper, propertyMapper);
+            return new EntityMapper(dropMapper, effectsMapper, propertyMapper);
+        }
+
+        [TestMethod]
+        public void entityclasses_CanDeserialize()
+        {
+            //Arrange
+            var pathToXml = @"../../../GameData/TestData/entityclasses.xml";
+
+            //Act
+            var entityClasses = Deserialize<entity_classes>(pathToXml);
+            //Serialize(entityClasses, @"C:\Users\Nate\Desktop\entityclassestest.xml");
+
+            var entityMapper = GetEntityMapper();
+
             var entities = new List<Entity>();
             foreach (var item in entityClasses.Items)
             {

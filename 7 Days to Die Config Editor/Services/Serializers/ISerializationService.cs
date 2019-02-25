@@ -6,7 +6,7 @@ namespace Services.Serializers
 {
     public interface ISerializationService
     {
-        string Serialize<T>(T source);
-        T Deserialize<T>(string source);
+        string Serialize<T>(T source) where T : class;
+        T Deserialize<T>(string source) where T : class;
     }
 }

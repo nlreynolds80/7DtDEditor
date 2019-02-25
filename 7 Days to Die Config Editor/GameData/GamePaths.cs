@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class GamePaths
+    public static class GamePaths
     {
-        public string GameRoot => @"7 Days To Die";
-        public string DataRoot => $@"{GameRoot}\Data";
-        public string ConfigRoot => $@"{DataRoot}\Config";
+        public static string GameRoot { get; } = @"7 Days To Die";
+        public static string DataRoot { get; } = $@"{GameRoot}\Data";
+        public static string ConfigRoot { get; } = $@"{DataRoot}\Config";
 
-        public string EntityClassesFilename => "entityclasses.xml";
+        public static string EntityClassesFilename { get; } = "entityclasses.xml";
 
-        public string EntityClassesPath => $@"{ConfigRoot}\{EntityClassesFilename}";
+        public static string EntityClassesPath { get; } = $@"{ConfigRoot}\{EntityClassesFilename}";
     }
 }
