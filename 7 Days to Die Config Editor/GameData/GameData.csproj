@@ -49,12 +49,6 @@
     <Compile Include="Classes\spawning.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TestData\entityclasses.xml" />
-    <Content Include="TestData\entitygroups.xml" />
-    <Content Include="TestData\gamestages.xml" />
-    <Content Include="TestData\spawning.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="ScanGameData.bat" />
     <EmbeddedResource Include="Schema\entityclasses.xsd" />
     <EmbeddedResource Include="Schema\entitygroups.xsd" />

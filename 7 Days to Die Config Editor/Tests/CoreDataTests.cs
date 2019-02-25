@@ -8,6 +8,8 @@ using Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Services;
 using Services.Mappers;
+using Services.Serializers;
+using Services.Storage;
 
 namespace Tests
 {
@@ -44,14 +46,17 @@ namespace Tests
         }
 
         [TestMethod]
-        public void entityclasses_CanDeserialize()
+        public void Scratches()
         {
             //Arrange
-            var pathToXml = @"../../../GameData/TestData/entityclasses.xml";
+            var pathToXml = @"../../TestData/entityclasses.xml";
 
             //Act
-            var entityClasses = Deserialize<entity_classes>(pathToXml);
-            //Serialize(entityClasses, @"C:\Users\Nate\Desktop\entityclassestest.xml");
+            var xmlSerializationService = new XmlSerializationService();
+            var generalFileService = new GeneralFileService();
+            var xml = generalFileService.Get(pathToXml);
+            var entityClasses = xmlSerializationService.Deserialize<entity_classes>(xml);
+            //var entityClasses = Deserialize<entity_classes>(pathToXml);
 
             var entityMapper = GetEntityMapper();
 
@@ -64,6 +69,21 @@ namespace Tests
                     entities.Add(entityMapper.Convert(entity));
                 }
             }
+
+            //Assert
+            Assert.IsNotNull(entities);
+            Assert.IsTrue(entities.Count > 0);
+        }
+
+        [TestMethod]
+        public void entityclasses_CanDeserialize()
+        {
+            //Arrange
+            var pathToXml = @"../../TestData/entityclasses.xml";
+
+            //Act
+            var entityClasses = Deserialize<entity_classes>(pathToXml);
+            //Serialize(entityClasses, @"C:\Users\Nate\Desktop\entityclassestest.xml");
 
             //Assert
             Assert.IsNotNull(entityClasses);
