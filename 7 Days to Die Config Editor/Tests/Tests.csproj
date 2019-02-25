@@ -72,6 +72,7 @@
     <Compile Include="PassiveEffectMapperTests.cs" />
     <Compile Include="TriggeredEffectMapperTests.cs" />
     <Compile Include="EffectRequirementMapperTests.cs" />
+    <Compile Include="XmlSerializationServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

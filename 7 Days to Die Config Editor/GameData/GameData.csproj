@@ -44,7 +44,6 @@
     <Compile Include="Classes\entityclasses.cs" />
     <Compile Include="Classes\entitygroups.cs" />
     <Compile Include="Classes\gamestages.cs" />
-    <Compile Include="GamePaths.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\spawning.cs" />
   </ItemGroup>
@@ -54,6 +53,24 @@
     <EmbeddedResource Include="Schema\entitygroups.xsd" />
     <EmbeddedResource Include="Schema\gamestages.xsd" />
     <EmbeddedResource Include="Schema\spawning.xsd" />
+    <None Include="Schema\entityclasses.xsc">
+      <DependentUpon>entityclasses.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\entityclasses.xss">
+      <DependentUpon>entityclasses.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\entitygroups.xsc">
+      <DependentUpon>entitygroups.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\entitygroups.xss">
+      <DependentUpon>entitygroups.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\gamestages.xsc">
+      <DependentUpon>gamestages.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\gamestages.xss">
+      <DependentUpon>gamestages.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
