@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Services.Storage
 {
-    public class IsolateStorageFileService : ILocalFileService
+    public class IsolatedStorageFileService : ILocalFileService
     {
         public string Get(string filePath)
         {
