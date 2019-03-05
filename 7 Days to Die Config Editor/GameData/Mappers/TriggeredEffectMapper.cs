@@ -1,10 +1,7 @@
 ﻿using Domain;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Services.Mappers
+namespace GameData.Mappers
 {
     public class TriggeredEffectMapper : IMapper<entity_classesEntity_classEffect_groupTriggered_effect, TriggeredEffect>
     {

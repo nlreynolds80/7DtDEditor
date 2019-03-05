@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Domain;
+using GameData.Mappers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
-using Domain;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Services.Mappers;
 
 namespace Tests
 {

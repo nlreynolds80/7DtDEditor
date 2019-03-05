@@ -1,10 +1,7 @@
 ﻿using Domain;
-using Services.Mappers;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 
-namespace Services
+namespace GameData.Mappers
 {
     public class EntityMapper : IMapper<entity_classesEntity_class, Entity>
     {

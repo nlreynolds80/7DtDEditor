@@ -1,9 +1,6 @@
 ﻿using Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Services.Mappers
+namespace GameData.Mappers
 {
     public class PassiveEffectMapper : IMapper<entity_classesEntity_classEffect_groupPassive_effect, PassiveEffect>
     {

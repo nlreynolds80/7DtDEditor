@@ -1,7 +1,6 @@
-﻿using System;
-using Domain;
+﻿using Domain;
+using GameData.Mappers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Services.Mappers;
 
 namespace Tests
 {

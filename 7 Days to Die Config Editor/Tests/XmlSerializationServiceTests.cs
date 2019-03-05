@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
-using Domain;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Services;
-using Services.Mappers;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Services.Serializers;
 using Services.Storage;
 
@@ -45,7 +36,7 @@ namespace Tests
 
             //Act
             var xml = generalFileService.Get(pathToXml);
-            var entityGroups = xmlSerializationService.Deserialize<entity_classes>(xml);
+            var entityGroups = xmlSerializationService.Deserialize<entitygroups>(xml);
 
             //Assert
             Assert.IsNotNull(entityGroups);
@@ -62,7 +53,7 @@ namespace Tests
 
             //Act
             var xml = generalFileService.Get(pathToXml);
-            var gameStages = xmlSerializationService.Deserialize<entity_classes>(xml);
+            var gameStages = xmlSerializationService.Deserialize<gamestages>(xml);
 
             //Assert
             Assert.IsNotNull(gameStages);
@@ -79,7 +70,7 @@ namespace Tests
 
             //Act
             var xml = generalFileService.Get(pathToXml);
-            var spawning = xmlSerializationService.Deserialize<entity_classes>(xml);
+            var spawning = xmlSerializationService.Deserialize<spawning>(xml);
 
             //Assert
             Assert.IsNotNull(spawning);

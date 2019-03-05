@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Domain;
+﻿using Domain;
+using GameData.Mappers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Services;
-using Services.Mappers;
+using System.Collections.Generic;
 
 namespace Tests
 {

@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
-using Domain;
+﻿using Domain;
+using GameData.Mappers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Services;
-using Services.Mappers;
 using Services.Serializers;
 using Services.Storage;
+using System.Collections.Generic;
 
 namespace Tests
 {
