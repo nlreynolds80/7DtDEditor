@@ -44,6 +44,10 @@
     <Compile Include="Classes\entityclasses.cs" />
     <Compile Include="Classes\entitygroups.cs" />
     <Compile Include="Classes\gamestages.cs" />
+    <Compile Include="ConfigFiles\ConfigFile.cs" />
+    <Compile Include="ConfigFiles\EntityClasses.cs" />
+    <Compile Include="GamePaths\GamePaths.cs" />
+    <Compile Include="GamePaths\IGamePaths.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\spawning.cs" />
   </ItemGroup>
