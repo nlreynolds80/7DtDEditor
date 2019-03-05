@@ -19,8 +19,8 @@ namespace GameData.ConfigFiles
 
     public abstract class ConfigFile<T> : ConfigFile
     {
-        protected ConfigFile(IGamePaths gamePaths) : base(gamePaths) { }
+        public abstract IEnumerable<T> Data { get; }
 
-        public abstract IEnumerable<T> GetData();
+        protected ConfigFile(IGamePaths gamePaths) : base(gamePaths) { }
     }
 }
