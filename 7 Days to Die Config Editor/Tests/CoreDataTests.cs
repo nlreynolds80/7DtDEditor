@@ -47,7 +47,7 @@ namespace Tests
 
             //Act
             var xmlSerializationService = new XmlSerializationService();
-            var generalFileService = new GeneralFileService();
+            var generalFileService = new LocalFileService();
             var xml = generalFileService.Get(pathToXml);
             var entityClasses = xmlSerializationService.Deserialize<entity_classes>(xml);
 

@@ -14,7 +14,7 @@ namespace Tests
             //Arrange
             var pathToXml = @"../../TestData/entityclasses.xml";
             var xmlSerializationService = new XmlSerializationService();
-            var generalFileService = new GeneralFileService();
+            var generalFileService = new LocalFileService();
 
             //Act
             var xml = generalFileService.Get(pathToXml);
@@ -32,7 +32,7 @@ namespace Tests
             //Arrange
             var pathToXml = @"../../TestData/entitygroups.xml";
             var xmlSerializationService = new XmlSerializationService();
-            var generalFileService = new GeneralFileService();
+            var generalFileService = new LocalFileService();
 
             //Act
             var xml = generalFileService.Get(pathToXml);
@@ -49,7 +49,7 @@ namespace Tests
             //Arrange
             var pathToXml = @"../../TestData/gamestages.xml";
             var xmlSerializationService = new XmlSerializationService();
-            var generalFileService = new GeneralFileService();
+            var generalFileService = new LocalFileService();
 
             //Act
             var xml = generalFileService.Get(pathToXml);
@@ -66,7 +66,7 @@ namespace Tests
             //Arrange
             var pathToXml = @"../../TestData/spawning.xml";
             var xmlSerializationService = new XmlSerializationService();
-            var generalFileService = new GeneralFileService();
+            var generalFileService = new LocalFileService();
 
             //Act
             var xml = generalFileService.Get(pathToXml);

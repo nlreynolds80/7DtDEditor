@@ -9,7 +9,7 @@ namespace GameData.ConfigFiles
 
         public abstract string Filename { get; }
 
-        public virtual string FullPath => $@"{_gamePaths.ConfigRoot}\{Filename}";
+        public virtual string GamePath => $@"{_gamePaths.ConfigRoot}\{Filename}";
 
         protected ConfigFile(IGamePaths gamePaths)
         {
@@ -17,10 +17,8 @@ namespace GameData.ConfigFiles
         }
     }
 
-    public abstract class ConfigFile<T> : ConfigFile
+    public abstract class ConfigFile<X, T> : ConfigFile
     {
-        public abstract IEnumerable<T> Data { get; }
-
         protected ConfigFile(IGamePaths gamePaths) : base(gamePaths) { }
     }
 }

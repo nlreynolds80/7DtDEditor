@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -44,7 +46,7 @@
     <Compile Include="Drop.cs" />
     <Compile Include="EffectRequirement.cs" />
     <Compile Include="EffectsGroup.cs" />
-    <Compile Include="EntityCollection.cs" />
+    <Compile Include="Entities.cs" />
     <Compile Include="UserSettings.cs" />
     <Compile Include="TriggeredEffect.cs" />
     <Compile Include="Entity.cs" />

@@ -4,11 +4,9 @@ using GameData.GamePaths;
 
 namespace GameData.ConfigFiles
 {
-    public class EntityClasses : ConfigFile<Entity>
+    public class EntityClasses : ConfigFile<entity_classes, Entities>
     {
         public override string Filename => "entityclasses.xml";
-
-        public override IEnumerable<Entity> Data => throw new System.NotImplementedException();
 
         public EntityClasses(IGamePaths gamePaths) : base(gamePaths) { }
     }

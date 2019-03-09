@@ -9,12 +9,12 @@ namespace Services
 {
     class UserSettingsService : IUserSettingsService
     {
-        private readonly ILocalFileService _localFileService;
+        private readonly IFileStorageService _localFileService;
         private readonly ISerializationService _serializationService;
         private readonly string _userSettingsPath;
         private UserSettings _cachedUserSettings;
 
-        public UserSettingsService(ILocalFileService localFileService, ISerializationService serializationService, string userSettingsPath)
+        public UserSettingsService(IFileStorageService localFileService, ISerializationService serializationService, string userSettingsPath)
         {
             _localFileService = localFileService;
             _serializationService = serializationService;
