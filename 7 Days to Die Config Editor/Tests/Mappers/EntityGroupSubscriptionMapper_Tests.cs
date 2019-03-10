@@ -8,6 +8,7 @@ namespace Tests.Mappers
     public class EntityGroupSubscriptionMapper_Tests
     {
         [TestMethod]
+        [TestCategory("Unit")]
         public void ConvertToDomain_GivenValidObject_MapsCorrectly()
         {
             //Arrange
@@ -28,6 +29,7 @@ namespace Tests.Mappers
         }
 
         [TestMethod]
+        [TestCategory("Unit")]
         public void ConvertToXml_GivenValidObject_MapsCorrectly()
         {
             //Arrange
