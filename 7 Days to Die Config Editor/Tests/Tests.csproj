@@ -65,7 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoreDataTests.cs" />
+    <Compile Include="GameDataRepository_Tests.cs" />
     <Compile Include="Mappers\EntitiesMapperTests.cs" />
     <Compile Include="Mappers\MapperFactory_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +76,7 @@
     <Compile Include="Mappers\PassiveEffectMapperTests.cs" />
     <Compile Include="Mappers\TriggeredEffectMapperTests.cs" />
     <Compile Include="Mappers\EffectRequirementMapperTests.cs" />
+    <Compile Include="TestPaths.cs" />
     <Compile Include="XmlSerializationServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>

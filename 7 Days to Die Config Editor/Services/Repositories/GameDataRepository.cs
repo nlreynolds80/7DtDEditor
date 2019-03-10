@@ -6,7 +6,7 @@ using Services.Storage;
 
 namespace Services.Repositories
 {
-    class GameDataRepository : IGameDataRepository
+    public class GameDataRepository : IGameDataRepository
     {
         private readonly IFileStorageService _fileStorageService;
         private readonly IMapperFactory _mapperFactory;
