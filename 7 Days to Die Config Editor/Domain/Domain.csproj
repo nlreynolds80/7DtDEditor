@@ -47,6 +47,8 @@
     <Compile Include="EffectRequirement.cs" />
     <Compile Include="EffectsGroup.cs" />
     <Compile Include="Entities.cs" />
+    <Compile Include="EntityGroup.cs" />
+    <Compile Include="EntityGroupSubscription.cs" />
     <Compile Include="UserSettings.cs" />
     <Compile Include="TriggeredEffect.cs" />
     <Compile Include="Entity.cs" />
