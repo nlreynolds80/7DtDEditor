@@ -54,6 +54,7 @@
     <Compile Include="Mappers\EffectRequirementMapper.cs" />
     <Compile Include="Mappers\EffectsGroupMapper.cs" />
     <Compile Include="Mappers\EntitiesMapper.cs" />
+    <Compile Include="Mappers\EntityGroupSubscriptionMapper.cs" />
     <Compile Include="Mappers\EntityMapper.cs" />
     <Compile Include="Mappers\IMapper.cs" />
     <Compile Include="Mappers\PassiveEffectMapper.cs" />
