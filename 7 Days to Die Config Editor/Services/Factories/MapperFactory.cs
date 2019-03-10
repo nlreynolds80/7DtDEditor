@@ -20,7 +20,7 @@ namespace Services.Factories
         {
             switch (config)
             {
-                case EntityClasses c:
+                case EntityClassesFile c:
                     return (IMapper<X, T>)_entitiesMapper;
                 default:
                     throw new ArgumentException(

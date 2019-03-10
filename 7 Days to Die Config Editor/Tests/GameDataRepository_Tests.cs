@@ -36,7 +36,7 @@ namespace Tests
         {
             //Arrange
             var testPaths = new TestPaths();
-            var configFile = new EntityClasses(testPaths);
+            var configFile = new EntityClassesFile(testPaths);
             var gameDataRepository = GetGameDataRepository();
 
             //Act

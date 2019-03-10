@@ -27,7 +27,7 @@ namespace Tests.Mappers
         {
             //Arrange
             var mapperFactory = new MapperFactory(_entitiesMapper.Object);
-            var config = new EntityClasses(_gamePaths.Object);
+            var config = new EntityClassesFile(_gamePaths.Object);
 
             //Act
             var mapper = mapperFactory.GetMapper(config);
