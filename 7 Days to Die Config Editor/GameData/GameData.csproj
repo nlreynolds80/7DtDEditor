@@ -56,6 +56,7 @@
     <Compile Include="Mappers\EffectsGroupMapper.cs" />
     <Compile Include="Mappers\EntitiesMapper.cs" />
     <Compile Include="Mappers\EntityGroupMapper.cs" />
+    <Compile Include="Mappers\EntityGroupsMapper.cs" />
     <Compile Include="Mappers\EntityGroupSubscriptionMapper.cs" />
     <Compile Include="Mappers\EntityMapper.cs" />
     <Compile Include="Mappers\IMapper.cs" />

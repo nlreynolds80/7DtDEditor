@@ -70,6 +70,7 @@
     <Compile Include="Mappers\MapperFactory_Tests.cs" />
     <Compile Include="Mappers\EntityGroupSubscriptionMapper_Tests.cs" />
     <Compile Include="Mappers\EntityGroupMapper_Tests.cs" />
+    <Compile Include="Mappers\EntityGroupsMapper_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Mappers\EntityMapperTests.cs" />
     <Compile Include="Mappers\DropMapperTests.cs" />

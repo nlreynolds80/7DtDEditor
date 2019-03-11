@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GameData.ConfigFiles
 {
-    public class EntityGroupsFile : ConfigFile<entitygroupsEntitygroup, EntityGroup>
+    public class EntityGroupsFile : ConfigFile<entitygroups, EntityGroups>
     {
         public override string Filename => "entitygroups.xml";
 

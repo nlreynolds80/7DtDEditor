@@ -28,7 +28,7 @@ namespace Tests.Mappers
             {
                 Items = new object[1] 
                 {
-                    new entity_classesEntity_class() { name = "test" }
+                    new entity_classesEntity_class()
                 }
             };
 

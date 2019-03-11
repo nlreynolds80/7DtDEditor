@@ -15,7 +15,7 @@ namespace GameData.Mappers
         public entity_classes Convert(Entities domainSource)
         {
             var entity_classes = new entity_classes();
-            entity_classes.Items = (domainSource.Select(e => _entityMapper.Convert(e.Value))).ToArray();
+            entity_classes.Items = domainSource.Select(e => _entityMapper.Convert(e.Value)).ToArray();
             return entity_classes;
         }
 

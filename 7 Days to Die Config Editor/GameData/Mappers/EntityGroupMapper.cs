@@ -1,5 +1,4 @@
 ﻿using Domain;
-using System;
 using System.Linq;
 
 namespace GameData.Mappers
