@@ -48,6 +48,7 @@
     <Compile Include="Classes\gamestages.cs" />
     <Compile Include="ConfigFiles\ConfigFile.cs" />
     <Compile Include="ConfigFiles\EntityClassesFile.cs" />
+    <Compile Include="ConfigFiles\EntityGroupsFile.cs" />
     <Compile Include="GamePaths\GamePaths.cs" />
     <Compile Include="GamePaths\IGamePaths.cs" />
     <Compile Include="Mappers\DropMapper.cs" />
