@@ -23,7 +23,12 @@ namespace Tests
             var propertyMapper = new PropertyMapper();
             var entityMapper = new EntityMapper(dropMapper, effectsMapper, propertyMapper);
             var entitiesMapper = new EntitiesMapper(entityMapper);
-            var mapperFactory = new MapperFactory(entitiesMapper);
+
+            var entityGroupSubscriptionMapper = new EntityGroupSubscriptionMapper();
+            var entityGroupMapper = new EntityGroupMapper(entityGroupSubscriptionMapper);
+            var entityGroupsMapper = new EntityGroupsMapper(entityGroupMapper);
+            
+            var mapperFactory = new MapperFactory(entitiesMapper, entityGroupsMapper);
             var fileStorageService = new LocalFileService();
             var xmlSerializationService = new XmlSerializationService();
 
@@ -37,6 +42,23 @@ namespace Tests
             //Arrange
             var testPaths = new TestPaths();
             var configFile = new EntityClassesFile(testPaths);
+            var gameDataRepository = GetGameDataRepository();
+
+            //Act
+            var entities = gameDataRepository.GetConfigData(configFile);
+
+            //Assert
+            Assert.IsNotNull(entities);
+            Assert.IsTrue(entities.Count > 0);
+        }
+
+        [TestMethod]
+        [TestCategory("Integration")]
+        public void GetConfigData_EntityGroups()
+        {
+            //Arrange
+            var testPaths = new TestPaths();
+            var configFile = new EntityGroupsFile(testPaths);
             var gameDataRepository = GetGameDataRepository();
 
             //Act
