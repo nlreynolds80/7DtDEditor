@@ -8,6 +8,7 @@ namespace Tests.Mappers
     public class DropMapper_Tests
     {
         [TestMethod]
+        [TestCategory("Unit")]
         public void ConvertoToDomain_MapsCorrectly()
         {
             //Arrange
@@ -34,6 +35,7 @@ namespace Tests.Mappers
         }
 
         [TestMethod]
+        [TestCategory("Unit")]
         public void ContertToXml_MapsCorrectly()
         {
             //Arrange

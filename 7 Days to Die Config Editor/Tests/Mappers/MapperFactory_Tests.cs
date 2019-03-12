@@ -25,6 +25,7 @@ namespace Tests.Mappers
         }
 
         [TestMethod]
+        [TestCategory("Unit")]
         public void GetMapper_EntityClasses_Returns_EntitiesMapper()
         {
             //Arrange
@@ -39,6 +40,7 @@ namespace Tests.Mappers
         }
 
         [TestMethod]
+        [TestCategory("Unit")]
         public void GetMapper_EntityGroups_Returns_EntityGroupsMapper()
         {
             //Arrange

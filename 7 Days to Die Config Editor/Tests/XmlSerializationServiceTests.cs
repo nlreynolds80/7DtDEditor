@@ -9,6 +9,7 @@ namespace Tests
     {
 
         [TestMethod]
+        [TestCategory("Unit")]
         public void entityclasses_CanDeserialize()
         {
             //Arrange
@@ -27,6 +28,7 @@ namespace Tests
         }
 
         [TestMethod]
+        [TestCategory("Unit")]
         public void entitygroups_CanDeserialize()
         {
             //Arrange
@@ -44,6 +46,7 @@ namespace Tests
         }
 
         [TestMethod]
+        [TestCategory("Unit")]
         public void gamestages_CanDeserialize()
         {
             //Arrange
@@ -61,6 +64,7 @@ namespace Tests
         }
 
         [TestMethod]
+        [TestCategory("Unit")]
         public void spawning_CanDeserialize()
         {
             //Arrange
