@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Mappers
 {
     [TestClass]
-    public class EffectRequirementMapperTests
+    public class EffectRequirementMapper_Tests
     {
         [TestMethod]
         public void ConvertToDomain_MapsCorrectly()

@@ -8,7 +8,7 @@ using System.Linq;
 namespace Tests.Mappers
 {
     [TestClass]
-    public class TriggeredEffectMapperTests
+    public class TriggeredEffectMapper_Tests
     {
         private Mock<IMapper<entity_classesEntity_classEffect_groupTriggered_effectRequirement, EffectRequirement>> _effectRequirementMapper;
 

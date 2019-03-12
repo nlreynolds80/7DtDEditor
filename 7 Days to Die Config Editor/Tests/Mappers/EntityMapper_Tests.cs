@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Tests.Mappers
 {
     [TestClass]
-    public class EntityMapperTests
+    public class EntityMapper_Tests
     {
         private Mock<IMapper<entity_classesEntity_classDrop, Drop>> _dropMapper;
         private Mock<IMapper<entity_classesEntity_classEffect_group, EffectsGroup>> _effectsMapper;

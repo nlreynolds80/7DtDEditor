@@ -7,7 +7,7 @@ using Moq;
 namespace Tests.Mappers
 {
     [TestClass]
-    public class EntitiesMapperTests
+    public class EntitiesMapper_Tests
     {
         private Mock<IMapper<entity_classesEntity_class, Entity>> _entityMapper;
 

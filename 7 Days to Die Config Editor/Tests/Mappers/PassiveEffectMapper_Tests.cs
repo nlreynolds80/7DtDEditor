@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Mappers
 {
     [TestClass]
-    public class PassiveEffectMapperTests
+    public class PassiveEffectMapper_Tests
     {
         [TestMethod]
         public void ConvertToDomain_MapsCorrectly()

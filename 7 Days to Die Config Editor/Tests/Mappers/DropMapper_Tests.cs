@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Mappers
 {
     [TestClass]
-    public class DropMapperTests
+    public class DropMapper_Tests
     {
         [TestMethod]
         public void ConvertoToDomain_MapsCorrectly()

@@ -7,7 +7,7 @@ using System.Linq;
 namespace Tests.Mappers
 {
     [TestClass]
-    public class PropertyMapperTests
+    public class PropertyMapper_Tests
     {
         [TestMethod]
         public void CovertToDomain_MapsCorrectly()

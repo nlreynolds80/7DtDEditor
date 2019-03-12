@@ -66,19 +66,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameDataRepository_Tests.cs" />
-    <Compile Include="Mappers\EntitiesMapperTests.cs" />
+    <Compile Include="Mappers\EntitiesMapper_Tests.cs" />
     <Compile Include="Mappers\MapperFactory_Tests.cs" />
     <Compile Include="Mappers\EntityGroupSubscriptionMapper_Tests.cs" />
     <Compile Include="Mappers\EntityGroupMapper_Tests.cs" />
     <Compile Include="Mappers\EntityGroupsMapper_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Mappers\EntityMapperTests.cs" />
-    <Compile Include="Mappers\DropMapperTests.cs" />
-    <Compile Include="Mappers\PropertyMapperTests.cs" />
-    <Compile Include="Mappers\EffectsGroupMapperTests.cs" />
-    <Compile Include="Mappers\PassiveEffectMapperTests.cs" />
-    <Compile Include="Mappers\TriggeredEffectMapperTests.cs" />
-    <Compile Include="Mappers\EffectRequirementMapperTests.cs" />
+    <Compile Include="Mappers\EntityMapper_Tests.cs" />
+    <Compile Include="Mappers\DropMapper_Tests.cs" />
+    <Compile Include="Mappers\PropertyMapper_Tests.cs" />
+    <Compile Include="Mappers\EffectsGroupMapper_Tests.cs" />
+    <Compile Include="Mappers\PassiveEffectMapper_Tests.cs" />
+    <Compile Include="Mappers\TriggeredEffectMapper_Tests.cs" />
+    <Compile Include="Mappers\EffectRequirementMapper_Tests.cs" />
     <Compile Include="TestPaths.cs" />
     <Compile Include="XmlSerializationServiceTests.cs" />
   </ItemGroup>
