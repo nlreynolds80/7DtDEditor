@@ -49,7 +49,7 @@ namespace Tests.Mappers
             var entityGroupsMapper = new EntityGroupsMapper(_entityGroupMapper.Object);
             var entityGroups = new EntityGroups()
             {
-                {"test", new EntityGroup("test") }
+                new EntityGroup("test")
             };
 
             //Act

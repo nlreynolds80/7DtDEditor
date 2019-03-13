@@ -16,7 +16,7 @@ namespace GameData.Mappers
         {
             var xml = new entitygroups()
             {
-                Items = domainSource.Select(eg => _entityGroupMapper.Convert(eg.Value)).ToArray()
+                Items = domainSource.Select(eg => _entityGroupMapper.Convert(eg)).ToArray()
             };
             return xml;
         }
