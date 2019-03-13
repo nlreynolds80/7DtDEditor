@@ -4,7 +4,7 @@
     {
         public string Name => Entity.Name;
 
-        public Entity Entity { get; }
+        public Entity Entity { get; private set; }
 
         public string Probability { get; set; }
 
@@ -12,6 +12,11 @@
         {
             Entity = entity;
             Probability = probability;
+        }
+
+        public void SetEntity(Entity entity)
+        {
+            Entity = entity;
         }
     }
 }
