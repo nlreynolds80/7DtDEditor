@@ -2,11 +2,12 @@
 using GameData.ConfigFiles;
 using GameData.Mappers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using Services;
 using Services.Factories;
 using Services.Repositories;
 using Services.Serializers;
 using Services.Storage;
-using System.Collections.Generic;
 
 namespace Tests
 {
@@ -32,7 +33,10 @@ namespace Tests
             var fileStorageService = new LocalFileService();
             var xmlSerializationService = new XmlSerializationService();
 
-            return new GameDataRepository(fileStorageService, xmlSerializationService, mapperFactory);
+            var userSettingsService = new Mock<IUserSettingsService>();
+            userSettingsService.Setup(obj => obj.Get()).Returns(new UserSettings() { GameInstallLocation = string.Empty });
+
+            return new GameDataRepository(fileStorageService, mapperFactory, xmlSerializationService, userSettingsService.Object);
         }
 
         [TestMethod]

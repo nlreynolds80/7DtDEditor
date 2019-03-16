@@ -11,9 +11,18 @@ namespace Services.Repositories
         private readonly IFileStorageService _fileStorageService;
         private readonly IMapperFactory _mapperFactory;
         private readonly ISerializationService _serializationService;
+        private readonly IUserSettingsService _userSettingsService;
 
-        public T GetConfigData<X, T>(ConfigFile<X, T> config) 
-            where X : class 
+        public GameDataRepository(IFileStorageService fileStorageService, IMapperFactory mapperFactory, ISerializationService serializationService, IUserSettingsService userSettingsService)
+        {
+            _fileStorageService = fileStorageService;
+            _mapperFactory = mapperFactory;
+            _serializationService = serializationService;
+            _userSettingsService = userSettingsService;
+        }
+
+        public T GetConfigData<X, T>(ConfigFile<X, T> config)
+            where X : class
             where T : class
         {
             var xml = _fileStorageService.Get(config.GamePath);
@@ -28,13 +37,6 @@ namespace Services.Repositories
             var xmlclasses = _mapperFactory.GetMapper(config).Convert(data);
             var xml = _serializationService.Serialize(data);
             _fileStorageService.Save(xml, config.GamePath);
-        }
-
-        public GameDataRepository(IFileStorageService fileStorageService, ISerializationService serializationService, IMapperFactory mapperFactory)
-        {
-            _fileStorageService = fileStorageService;
-            _mapperFactory = mapperFactory;
-            _serializationService = serializationService;
         }
     }
 }
