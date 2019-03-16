@@ -62,11 +62,11 @@ namespace Tests
             var gameDataRepository = GetGameDataRepository();
 
             //Act
-            var entities = gameDataRepository.GetConfigData(configFile);
+            var entityGroups = gameDataRepository.GetConfigData(configFile);
 
             //Assert
-            Assert.IsNotNull(entities);
-            Assert.IsTrue(entities.Count > 0);
+            Assert.IsNotNull(entityGroups);
+            Assert.IsTrue(entityGroups.Count > 0);
         }
     }
 }
