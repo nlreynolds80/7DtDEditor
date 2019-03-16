@@ -10,7 +10,7 @@ namespace Services.Factories
         {
             switch(target)
             {
-                case ILinker<EntityGroups> L:
+                case EntityGroups o:
                     return (ILinker<T>)new EntityGroupsLinker();
                 default:
                     throw new ArgumentException(

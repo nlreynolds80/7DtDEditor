@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameDataRepository_Tests.cs" />
+    <Compile Include="Linkers\LinkerFactory_Tests.cs" />
     <Compile Include="Mappers\EntitiesMapper_Tests.cs" />
     <Compile Include="Mappers\MapperFactory_Tests.cs" />
     <Compile Include="Mappers\EntityGroupSubscriptionMapper_Tests.cs" />
