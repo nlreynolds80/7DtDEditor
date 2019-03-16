@@ -1,8 +1,8 @@
 ﻿using GameData.ConfigFiles;
-using GameData.GamePaths;
 using Services.Factories;
 using Services.Serializers;
 using Services.Storage;
+using System;
 
 namespace Services.Repositories
 {
@@ -12,11 +12,22 @@ namespace Services.Repositories
         private readonly IMapperFactory _mapperFactory;
         private readonly ISerializationService _serializationService;
 
-        public T GetConfigData<X, T>(ConfigFile<X, T> config) where X : class where T : class
+        public T GetConfigData<X, T>(ConfigFile<X, T> config) 
+            where X : class 
+            where T : class
         {
             var xml = _fileStorageService.Get(config.GamePath);
-            var rawdata = _serializationService.Deserialize<X>(xml);
-            return _mapperFactory.GetMapper(config).Convert(rawdata);
+            var xmlclasses = _serializationService.Deserialize<X>(xml);
+            return _mapperFactory.GetMapper(config).Convert(xmlclasses);
+        }
+
+        public void SaveConfigData<X, T>(ConfigFile<X, T> config, T data)
+            where X : class
+            where T : class
+        {
+            var xmlclasses = _mapperFactory.GetMapper(config).Convert(data);
+            var xml = _serializationService.Serialize(data);
+            _fileStorageService.Save(xml, config.GamePath);
         }
 
         public GameDataRepository(IFileStorageService fileStorageService, ISerializationService serializationService, IMapperFactory mapperFactory)
