@@ -1,4 +1,5 @@
-﻿using Services.Extensions;
+﻿using Domain;
+using Services.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,16 +10,16 @@ namespace Services.Storage
 {
     public class IsolatedStorageFileService : IFileStorageService
     {
-        public string Get(string filePath)
+        public Result<string> Get(string filePath)
         {
             var userIsolatedStorageFile = IsolatedStorageFile.GetUserStoreForAssembly();
             using (var userIsolatedStorageStream = new IsolatedStorageFileStream(filePath, FileMode.OpenOrCreate, userIsolatedStorageFile))
             {
-                return userIsolatedStorageStream.ReadToString();
+                return Result.Ok(userIsolatedStorageStream.ReadToString());
             }
         }
 
-        public void Save(string data, string filePath)
+        public Result Save(string data, string filePath)
         {
             var userIsolatedStorageFile = IsolatedStorageFile.GetUserStoreForAssembly();
             using (var userIsolatedStorageStream = new IsolatedStorageFileStream(filePath, FileMode.Create, userIsolatedStorageFile))
@@ -27,6 +28,7 @@ namespace Services.Storage
                 streamWriter.Write(data);
                 streamWriter.Flush();
             }
+            return Result.Ok();
         }
     }
 }

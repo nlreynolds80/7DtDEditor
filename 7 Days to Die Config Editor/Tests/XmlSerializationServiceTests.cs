@@ -19,7 +19,7 @@ namespace Tests
 
             //Act
             var xml = generalFileService.Get(pathToXml);
-            var entityClasses = xmlSerializationService.Deserialize<entity_classes>(xml);
+            var entityClasses = xmlSerializationService.Deserialize<entity_classes>(xml.Value);
             //Serialize(entityClasses, @"C:\Users\Nate\Desktop\entityclassestest.xml");
 
             //Assert
@@ -38,7 +38,7 @@ namespace Tests
 
             //Act
             var xml = generalFileService.Get(pathToXml);
-            var entityGroups = xmlSerializationService.Deserialize<entitygroups>(xml);
+            var entityGroups = xmlSerializationService.Deserialize<entitygroups>(xml.Value);
 
             //Assert
             Assert.IsNotNull(entityGroups);
@@ -56,7 +56,7 @@ namespace Tests
 
             //Act
             var xml = generalFileService.Get(pathToXml);
-            var gameStages = xmlSerializationService.Deserialize<gamestages>(xml);
+            var gameStages = xmlSerializationService.Deserialize<gamestages>(xml.Value);
 
             //Assert
             Assert.IsNotNull(gameStages);
@@ -74,7 +74,7 @@ namespace Tests
 
             //Act
             var xml = generalFileService.Get(pathToXml);
-            var spawning = xmlSerializationService.Deserialize<spawning>(xml);
+            var spawning = xmlSerializationService.Deserialize<spawning>(xml.Value);
 
             //Assert
             Assert.IsNotNull(spawning);

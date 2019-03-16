@@ -26,7 +26,7 @@ namespace Services.Repositories
             where T : class
         {
             var path = pathOverride ?? $@"{_userSettingsService.Get().GameInstallLocation}\{config.GamePath}";
-            var xml = _fileStorageService.Get(path);
+            var xml = _fileStorageService.Get(path).Value;
             var xmlclasses = _serializationService.Deserialize<X>(xml);
             return _mapperFactory.GetMapper(config).Convert(xmlclasses);
         }
