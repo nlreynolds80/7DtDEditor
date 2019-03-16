@@ -10,6 +10,7 @@ namespace Tests.Linkers
     public class EntityGroupsLinker_Tests
     {
         [TestMethod]
+        [TestCategory("Unit")]
         public void Link_LinksCorrectly()
         {
             //Arrange

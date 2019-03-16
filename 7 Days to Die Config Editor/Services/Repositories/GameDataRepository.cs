@@ -21,22 +21,24 @@ namespace Services.Repositories
             _userSettingsService = userSettingsService;
         }
 
-        public T GetConfigData<X, T>(ConfigFile<X, T> config)
+        public T GetConfigData<X, T>(ConfigFile<X, T> config, string pathOverride = null)
             where X : class
             where T : class
         {
-            var xml = _fileStorageService.Get(config.GamePath);
+            var path = pathOverride ?? $@"{_userSettingsService.Get().GameInstallLocation}\{config.GamePath}";
+            var xml = _fileStorageService.Get(path);
             var xmlclasses = _serializationService.Deserialize<X>(xml);
             return _mapperFactory.GetMapper(config).Convert(xmlclasses);
         }
 
-        public void SaveConfigData<X, T>(ConfigFile<X, T> config, T data)
+        public void SaveConfigData<X, T>(ConfigFile<X, T> config, T data, string pathOverride = null)
             where X : class
             where T : class
         {
+            var path = pathOverride ?? $@"{_userSettingsService.Get().GameInstallLocation}\{config.GamePath}";
             var xmlclasses = _mapperFactory.GetMapper(config).Convert(data);
             var xml = _serializationService.Serialize(data);
-            _fileStorageService.Save(xml, config.GamePath);
+            _fileStorageService.Save(xml, path);
         }
     }
 }

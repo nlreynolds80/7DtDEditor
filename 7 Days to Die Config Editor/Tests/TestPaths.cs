@@ -9,10 +9,8 @@ namespace Tests
 {
     public class TestPaths : IGamePaths
     {
-        public string GameRoot => null;
-
         public string DataRoot => null;
 
-        public string ConfigRoot => $@"..\..\TestData";
+        public string ConfigRoot => $@"..\TestData";
     }
 }

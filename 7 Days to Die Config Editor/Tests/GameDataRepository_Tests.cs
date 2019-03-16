@@ -34,7 +34,7 @@ namespace Tests
             var xmlSerializationService = new XmlSerializationService();
 
             var userSettingsService = new Mock<IUserSettingsService>();
-            userSettingsService.Setup(obj => obj.Get()).Returns(new UserSettings() { GameInstallLocation = string.Empty });
+            userSettingsService.Setup(obj => obj.Get()).Returns(new UserSettings() { GameInstallLocation = ".." });
 
             return new GameDataRepository(fileStorageService, mapperFactory, xmlSerializationService, userSettingsService.Object);
         }
