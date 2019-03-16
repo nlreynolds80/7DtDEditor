@@ -1,7 +1,5 @@
-﻿using System;
-using Domain;
+﻿using Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Services;
 
 namespace Tests
 {

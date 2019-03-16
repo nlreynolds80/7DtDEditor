@@ -50,6 +50,7 @@
     <Compile Include="EntityGroup.cs" />
     <Compile Include="EntityGroups.cs" />
     <Compile Include="EntityGroupSubscription.cs" />
+    <Compile Include="Result.cs" />
     <Compile Include="UserSettings.cs" />
     <Compile Include="TriggeredEffect.cs" />
     <Compile Include="Entity.cs" />
