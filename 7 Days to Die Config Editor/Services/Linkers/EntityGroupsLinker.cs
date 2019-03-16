@@ -5,9 +5,16 @@ namespace Services.Linkers
 {
     public class EntityGroupsLinker : ILinker<EntityGroups>
     {
-        public EntityGroups Link(EntityGroups target, Entities entities)
+        private readonly EntityGroups _entityGroups;
+
+        public EntityGroupsLinker(EntityGroups entityGroups)
         {
-            foreach(var entityGroup in target)
+            _entityGroups = entityGroups;
+        }
+
+        public EntityGroups Link(Entities entities)
+        {
+            foreach(var entityGroup in _entityGroups)
             {
                 foreach(var subscription in entityGroup.EntitySubscriptions)
                 {
@@ -16,7 +23,7 @@ namespace Services.Linkers
                     subscription.SetEntity(entity);
                 }
             }
-            return target;
+            return _entityGroups;
         }
     }
 }

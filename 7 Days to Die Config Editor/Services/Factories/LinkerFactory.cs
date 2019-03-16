@@ -10,8 +10,8 @@ namespace Services.Factories
         {
             switch(target)
             {
-                case EntityGroups o:
-                    return (ILinker<T>)new EntityGroupsLinker();
+                case EntityGroups t:
+                    return (ILinker<T>)new EntityGroupsLinker(t);
                 default:
                     throw new ArgumentException(
                         message: "No linker supported for target",

@@ -4,6 +4,6 @@ namespace Services.Linkers
 {
     public interface ILinker<T>
     {
-        T Link(T target, Entities entities);
+        T Link(Entities entities);
     }
 }
