@@ -1,4 +1,5 @@
 ﻿using Domain;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Services.Linkers
@@ -16,12 +17,16 @@ namespace Services.Linkers
         {
             foreach(var entityGroup in _entityGroups)
             {
+                var entitySubscriptions = new List<EntityGroupSubscription>();
                 foreach(var subscription in entityGroup.EntitySubscriptions)
                 {
                     var entity = entities.FirstOrDefault(e => e.Name == subscription.Name);
-                    if (entity == null) continue;
+                    if (entity == null)
+                        continue;
                     subscription.SetEntity(entity);
+                    entitySubscriptions.Add(subscription);
                 }
+                entityGroup.SetEntitySubscriptions(entitySubscriptions);
             }
             return _entityGroups;
         }
