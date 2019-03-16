@@ -82,6 +82,7 @@
     <Compile Include="Mappers\TriggeredEffectMapper_Tests.cs" />
     <Compile Include="Mappers\EffectRequirementMapper_Tests.cs" />
     <Compile Include="TestPaths.cs" />
+    <Compile Include="Result_Tests.cs" />
     <Compile Include="XmlSerializationServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
