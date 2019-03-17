@@ -30,13 +30,13 @@ namespace Services
         {
             _cachedUserSettings = userSettings;
             var serializedData = _serializationService.Serialize(_cachedUserSettings);
-            _localFileService.Save(serializedData, _userSettingsPath);
+            _localFileService.Save(serializedData.Value, _userSettingsPath);
         }
 
         private UserSettings GetUserSettingsFromStorage()
         {
             var fileData = _localFileService.Get(_userSettingsPath);
-            return _serializationService.Deserialize<UserSettings>(fileData.Value);
+            return _serializationService.Deserialize<UserSettings>(fileData.Value).Value;
         }
     }
 }

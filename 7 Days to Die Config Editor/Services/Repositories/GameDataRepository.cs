@@ -28,7 +28,7 @@ namespace Services.Repositories
             var path = pathOverride ?? $@"{_userSettingsService.Get().GameInstallLocation}\{config.GamePath}";
             var xml = _fileStorageService.Get(path).Value;
             var xmlclasses = _serializationService.Deserialize<X>(xml);
-            return _mapperFactory.GetMapper(config).Convert(xmlclasses);
+            return _mapperFactory.GetMapper(config).Convert(xmlclasses.Value);
         }
 
         public void SaveConfigData<X, T>(ConfigFile<X, T> config, T data, string pathOverride = null)
@@ -38,7 +38,7 @@ namespace Services.Repositories
             var path = pathOverride ?? $@"{_userSettingsService.Get().GameInstallLocation}\{config.GamePath}";
             var xmlclasses = _mapperFactory.GetMapper(config).Convert(data);
             var xml = _serializationService.Serialize(data);
-            _fileStorageService.Save(xml, path);
+            _fileStorageService.Save(xml.Value, path);
         }
     }
 }

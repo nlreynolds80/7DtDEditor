@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Domain;
 
 namespace Services.Serializers
 {
     public interface ISerializationService
     {
-        string Serialize<T>(T source) where T : class;
-        T Deserialize<T>(string source) where T : class;
+        Result<string> Serialize<T>(T source) where T : class;
+
+        Result<T> Deserialize<T>(string source) where T : class;
     }
 }

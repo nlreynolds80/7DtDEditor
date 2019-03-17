@@ -1,20 +1,18 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Domain;
+using Newtonsoft.Json;
 
 namespace Services.Serializers
 {
     public class JsonSerializationService : ISerializationService
     {
-        public T Deserialize<T>(string source) where T : class
+        public Result<T> Deserialize<T>(string source) where T : class
         {
-            return JsonConvert.DeserializeObject<T>(source);
+            return Result.Ok(JsonConvert.DeserializeObject<T>(source));
         }
 
-        public string Serialize<T>(T source) where T : class
+        public Result<string> Serialize<T>(T source) where T : class
         {
-            return JsonConvert.SerializeObject(source);
+            return Result.Ok(JsonConvert.SerializeObject(source));
         }
     }
 }
