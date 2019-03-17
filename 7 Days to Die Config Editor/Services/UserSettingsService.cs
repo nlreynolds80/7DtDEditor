@@ -36,7 +36,13 @@ namespace Services
         private UserSettings GetUserSettingsFromStorage()
         {
             var fileData = _localFileService.Get(_userSettingsPath);
-            return _serializationService.Deserialize<UserSettings>(fileData.Value).Value;
+            if (fileData.IsSuccess)
+            {
+                var userSettings = _serializationService.Deserialize<UserSettings>(fileData.Value);
+                if (userSettings.IsSuccess)
+                    return userSettings.Value;
+            }
+            return new UserSettings();
         }
     }
 }
