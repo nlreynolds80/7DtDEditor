@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Newtonsoft.Json;
+using System;
 
 namespace Services.Serializers
 {
@@ -7,12 +8,26 @@ namespace Services.Serializers
     {
         public Result<T> Deserialize<T>(string source) where T : class
         {
-            return Result.Ok(JsonConvert.DeserializeObject<T>(source));
+            try
+            {
+                return Result.Ok(JsonConvert.DeserializeObject<T>(source));
+            }
+            catch(Exception ex)
+            {
+                return Result.Fail<T>(ex.Message);
+            }
         }
 
         public Result<string> Serialize<T>(T source) where T : class
         {
-            return Result.Ok(JsonConvert.SerializeObject(source));
+            try
+            {
+                return Result.Ok(JsonConvert.SerializeObject(source));
+            }
+            catch(Exception ex)
+            {
+                return Result.Fail<string>(ex.Message);
+            }
         }
     }
 }

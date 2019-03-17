@@ -12,23 +12,37 @@ namespace Services.Storage
     {
         public Result<string> Get(string filePath)
         {
-            var userIsolatedStorageFile = IsolatedStorageFile.GetUserStoreForAssembly();
-            using (var userIsolatedStorageStream = new IsolatedStorageFileStream(filePath, FileMode.OpenOrCreate, userIsolatedStorageFile))
+            try
             {
-                return Result.Ok(userIsolatedStorageStream.ReadToString());
+                var userIsolatedStorageFile = IsolatedStorageFile.GetUserStoreForAssembly();
+                using (var userIsolatedStorageStream = new IsolatedStorageFileStream(filePath, FileMode.OpenOrCreate, userIsolatedStorageFile))
+                {
+                    return Result.Ok(userIsolatedStorageStream.ReadToString());
+                }
+            }
+            catch(Exception ex)
+            {
+                return Result.Fail<string>(ex.Message);
             }
         }
 
         public Result Save(string data, string filePath)
         {
-            var userIsolatedStorageFile = IsolatedStorageFile.GetUserStoreForAssembly();
-            using (var userIsolatedStorageStream = new IsolatedStorageFileStream(filePath, FileMode.Create, userIsolatedStorageFile))
-            using (var streamWriter = new StreamWriter(userIsolatedStorageStream))
+            try
             {
-                streamWriter.Write(data);
-                streamWriter.Flush();
+                var userIsolatedStorageFile = IsolatedStorageFile.GetUserStoreForAssembly();
+                using (var userIsolatedStorageStream = new IsolatedStorageFileStream(filePath, FileMode.Create, userIsolatedStorageFile))
+                using (var streamWriter = new StreamWriter(userIsolatedStorageStream))
+                {
+                    streamWriter.Write(data);
+                    streamWriter.Flush();
+                }
+                return Result.Ok();
             }
-            return Result.Ok();
+            catch(Exception ex)
+            {
+                return Result.Fail(ex.Message);
+            }
         }
     }
 }

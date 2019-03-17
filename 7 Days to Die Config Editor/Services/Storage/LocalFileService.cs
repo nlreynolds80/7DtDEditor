@@ -11,21 +11,35 @@ namespace Services.Storage
     {
         public Result<string> Get(string filePath)
         {
-            using (var file = File.OpenRead(filePath))
+            try
             {
-                return Result.Ok(file.ReadToString());
+                using (var file = File.OpenRead(filePath))
+                {
+                    return Result.Ok(file.ReadToString());
+                }
+            }
+            catch(Exception ex)
+            {
+                return Result.Fail<string>(ex.Message);
             }
         }
 
         public Result Save(string data, string filePath)
         {
-            using (var file = File.OpenWrite(filePath))
-            using (var streamWriter = new StreamWriter(file))
+            try
             {
-                streamWriter.Write(data);
-                streamWriter.Flush();
+                using (var file = File.OpenWrite(filePath))
+                using (var streamWriter = new StreamWriter(file))
+                {
+                    streamWriter.Write(data);
+                    streamWriter.Flush();
+                }
+                return Result.Ok();
             }
-            return Result.Ok();
+            catch(Exception ex)
+            {
+                return Result.Fail(ex.Message);
+            }
         }
     }
 }
